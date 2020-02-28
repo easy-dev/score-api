@@ -1,0 +1,17 @@
+default:
+  extensions:
+    Behatch\Extension: ~
+    Behat\MinkExtension:
+      base_url:  'http://localhost:8080'
+      sessions:
+        my_session:
+          goutte:
+            guzzle_parameters:
+              verify: false
+  suites:
+    core_features:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - FeatureContext
+        - behatch:context:json
+        - behatch:context:rest
